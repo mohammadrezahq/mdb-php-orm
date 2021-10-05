@@ -1,4 +1,14 @@
 <?php
+/**
+ *                          MSQL
+ * ======================================================
+ *                     ORM - PHP/Mysql
+ *
+ * @link https://github.com/mohammadrezahq/msql-orm
+ * @license  http://www.opensource.org/licenses/mit-license.php MIT
+ * @copyright Copyright (c) 2021 Mohammadreza Haghshenas <mohammadrezah.official@gmail.com>
+ */
+
 
 class Msql
 {

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9b7a4e9-917c-4f0f-92e1-bb0d30b806ec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/msql.php" beforeDir="false" afterPath="$PROJECT_DIR$/msql.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +48,7 @@
       <workItem from="1633281243477" duration="3484000" />
       <workItem from="1633357926396" duration="6612000" />
       <workItem from="1633376727391" duration="1465000" />
-      <workItem from="1633441880761" duration="6227000" />
+      <workItem from="1633441880761" duration="7086000" />
     </task>
     <servers />
   </component>
