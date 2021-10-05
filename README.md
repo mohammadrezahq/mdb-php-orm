@@ -1,4 +1,4 @@
-# MSQL ORM
+# MSQL / PHP-SQL-ORM
 
 ### Setup
 
@@ -35,7 +35,7 @@ $charset = database's default charset (default = "utf8mb4")
 
     $msql->createTable($tableName, $args);
 
-For this in args, you should know how sql define it's cols.
+For this in args, you should know how sql defines it's cols.
 
 
 ### Insert Data
