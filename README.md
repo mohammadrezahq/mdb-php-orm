@@ -102,6 +102,11 @@ You can pass an array with data to whereArray method.
     
     $msql->table('users')->whereArray($data)->first();
 
+#### Order By
+
+    $msql->table('users')->order('id', 'DESC')->getALL();
+
+
 #### Get Count of rows
 
     $msql->table('users')->where('id',1,'>')->countOfRows(); // return int
@@ -110,8 +115,3 @@ You can pass an array with data to whereArray method.
 ### Delete data
 
     $msql->table('users')->where('email','something@email.com')->delete();
-
-### Raw Sql
-    
-    $sql = "SELECT * From users";
-    $msql->sql($sql);

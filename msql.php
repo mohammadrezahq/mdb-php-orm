@@ -97,6 +97,19 @@ class Msql
 
     }
 
+
+
+    /**
+     * Get array and turn into object
+     * @param array $array
+     * @return object
+     */
+    private function turnIntoObject(array $array) {
+
+        return json_decode(json_encode($array));
+
+    }
+
     /**
      * Get query
      * @return mysqli_result
@@ -219,7 +232,7 @@ class Msql
      * @param int $limit <p>
      * The limit of rows.
      * </p>
-     * @return array
+     * @return object
      */
     public function getAll($cols = "*", int $limit = 0)
     {
@@ -234,7 +247,7 @@ class Msql
 
         $this->query = "SELECT $cols From $this->table $this->where $this->order $limit";
 
-        return $this->query()->fetch_all(MYSQLI_ASSOC);
+        return  $this->turnIntoObject($this->query()->fetch_all(MYSQLI_ASSOC));
 
     }
 
@@ -243,7 +256,7 @@ class Msql
      * @param string $cols <p>
      * The columns.
      * </p>
-     * @return array
+     * @return object
      */
     public function first($cols = "*") {
 
@@ -251,7 +264,7 @@ class Msql
 
         $this->query = "SELECT $cols From $this->table $this->where $this->order";
 
-        return $this->query()->fetch_assoc();
+        return $this->turnIntoObject($this->query()->fetch_assoc());
     }
 
     /**
@@ -259,7 +272,7 @@ class Msql
      * @param string $cols <p>
      * The columns.
      * </p>
-     * @return array
+     * @return object
      */
     public function last($cols = "*") {
 
@@ -271,7 +284,7 @@ class Msql
 
         $count = count($query);
 
-        return $query[$count - 1];
+        return $this->turnIntoObject($query[$count - 1]);
 
     }
 
@@ -389,19 +402,6 @@ class Msql
         }
 
     }
-
-    /**
-     * Direct sql command to query
-     * @param string $sql
-     * If was not successful:
-     * @return mysqli_result
-     */
-    public function sql($sql) {
-        $this->query = $sql;
-
-        return $this->query();
-    }
-
 
     /**
      * Count of rows

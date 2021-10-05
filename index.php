@@ -8,4 +8,3 @@ $servername = "localhost";
 $charset = "utf8mb4";
 
 $msql = new Msql($dbname, $username, $password, $servername, $charset);
-
