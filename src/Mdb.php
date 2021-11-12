@@ -9,7 +9,7 @@ class Mdb {
 
     protected static $database = [
         "server" => "localhost",
-        "name" => "mafia",
+        "name" => "test",
         "username" => "root",
         "password" => "",
         "charset" => "utf8mb4"

@@ -2,23 +2,24 @@
 
 ### Setup
 
-Require the class:
+Require mdb with composer:
 
-`require_once ('msql.php');`
+`composer require mor/mdb`
 
-Get an instance of class:
+`use Mor\Mdb as Mdb` 
 
-`$msql = new Msql($dbname, $username, $password, $servername, $charset);` 
+change yoyr mysql server details in mdb.php file:
 
-$dbname = your database name
+```
+    protected static $database = [
+        "server" => "localhost",
+        "name" => "test",
+        "username" => "root",
+        "password" => "",
+        "charset" => "utf8mb4"
+    ];
 
-$username = your database username (default = root)
-
-$password = your database password (default = "")
-
-$servername = server name (default = localhost)
-
-$charset = database's default charset (default = "utf8mb4")
+```
 
 ----------------------------------
 
@@ -33,7 +34,7 @@ $charset = database's default charset (default = "utf8mb4")
         "lastname VARCHAR(30) NOT NULL"
     ];
 
-    $msql->createTable($tableName, $args);
+    Mdb::createTable($tableName, $args);
 
 For this in args, you should know how sql defines it's cols.
 
@@ -47,7 +48,7 @@ For this in args, you should know how sql defines it's cols.
         "lastname"=>"somelastname"
     ];
     
-    $msql->table($table)->insert($data);
+    Mdb::table($table)->insert($data);
 
 ### Update Data
 
@@ -56,39 +57,39 @@ For this in args, you should know how sql defines it's cols.
         "email"=>"something@email.com"
     ];
     
-    $msql->table($table)->where('email', 'thingsome@email.com')->update($data);
+    Mdb::table($table)->where('email', 'thingsome@email.com')->update($data);
     
 ### Get Data
 
     $table = "users";
     
-    $msql->table($table)->getAll(); // Gets all rows
-    $msql->table($table)->first(); // Gets first row
-    $msql->table($table)->last(); // Gets last row
+    Mdb::table($table)->getAll(); // Gets all rows
+    Mdb::table($table)->first(); // Gets first row
+    Mdb::table($table)->last(); // Gets last row
     
 #### Get All
     
     $cols = "firstname,lastname"; // Columns - default is *
     $limit = "2" // Limit of rows - default is 0 (unlimited)
     
-    $msql->table('users')->getAll($cols, $limit);
+    Mdb::table('users')->getAll($cols, $limit);
     // For first() and last() method, they only get $cols parameter.
 
 #### Where
 
-    $msql->table('users')->where('id', 1)->getAll();
+    Mdb::table('users')->where('id', 1)->getAll();
     
 You can use where method as many as you want.
 
-    $msql->table('users')->where('firstname', "somefirstname")->where("lastname","somelastname")->getAll();
+    Mdb::table('users')->where('firstname', "somefirstname")->where("lastname","somelastname")->getAll();
     
 ##### Where with operator
 
-    $msql->table('users')->where('id', 1, ">")->getAll();
+    Mdb::table('users')->where('id', 1, ">")->getAll();
     
 #### orWhere
 
-    $msql->table('users')->where('id', 1)->orWhere('id', 2)->getAll();
+    Mdb::table('users')->where('id', 1)->orWhere('id', 2)->getAll();
     // orWhere with operator is the same as where.
     
 #### Where with Array
@@ -100,18 +101,18 @@ You can pass an array with data to whereArray method.
         "lastname"=>"somelastname"
     ];
     
-    $msql->table('users')->whereArray($data)->first();
+    Mdb::table('users')->whereArray($data)->first();
 
 #### Order By
 
-    $msql->table('users')->order('id', 'DESC')->getALL();
+    Mdb::table('users')->order('id', 'DESC')->getALL();
 
 
 #### Get Count of rows
 
-    $msql->table('users')->where('id',1,'>')->countOfRows(); // return int
+    Mdb::table('users')->where('id',1,'>')->countOfRows(); // return int
 
 
 ### Delete data
 
-    $msql->table('users')->where('email','something@email.com')->delete();
+    Mdb::table('users')->where('email','something@email.com')->delete();
