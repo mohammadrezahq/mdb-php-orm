@@ -1,4 +1,4 @@
-# MSQL / PHP-SQL-ORM
+# MDB / PHP-database-ORM
 
 ### Setup
 
