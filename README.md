@@ -6,7 +6,7 @@ Require mdb with composer:
 
 `composer require mor/mdb`
 
-`use Mor\Mdb as Mdb;` 
+`use Mor\Mdb\Mdb;` 
 
 change your mysql server details in mdb.php file:
 
