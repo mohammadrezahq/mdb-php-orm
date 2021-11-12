@@ -6,9 +6,9 @@ Require mdb with composer:
 
 `composer require mor/mdb`
 
-`use Mor\Mdb as Mdb` 
+`use Mor\Mdb as Mdb;` 
 
-change yoyr mysql server details in mdb.php file:
+change your mysql server details in mdb.php file:
 
 ```
     protected static $database = [
