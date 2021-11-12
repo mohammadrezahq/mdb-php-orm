@@ -9,8 +9,11 @@
  * @copyright Copyright (c) 2021 Mohammadreza Haghshenas <mohammadrezah.official@gmail.com>
  */
 
+namespace Mor\Mdb\Inc;
 
-class Msql
+use Mor\Mdb\Inc\Base;
+
+class Mysql implements Base
 {
     private $db;
 
@@ -44,7 +47,7 @@ class Msql
     public function __construct($dbname, $username = "root", $password = "", $server = "localhost", $charset = "utf8mb4")
     {
 
-        $conn = new mysqli($server, $username, $password, $dbname);
+        $conn = new \mysqli($server, $username, $password, $dbname);
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
@@ -53,6 +56,10 @@ class Msql
         $conn->set_charset($charset);
         $this->db = $conn;
 
+    }
+
+    public static function check() {
+        echo 'test';
     }
 
     private function error($reason) {
@@ -141,8 +148,9 @@ class Msql
      */
     public function table($table)
     {
-        $this->table = $table;
 
+        $this->table = $table;
+        
         return $this;
     }
 

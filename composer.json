@@ -1,0 +1,19 @@
+{
+    "name": "mor/mdb",
+    "description": "Database orm for php",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mor\\Mdb\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mohammadreza Haghshenas",
+            "email": "mohammadrezah.official@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
