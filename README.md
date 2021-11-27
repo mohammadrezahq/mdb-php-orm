@@ -8,19 +8,18 @@ Require mdb with composer:
 
 `use Mor\Mdb\Mdb;` 
 
-change your mysql server details in mdb.php file:
+Change your database server details in .env file under src:
 
 ```
-    protected static $database = [
-        "server" => "localhost",
-        "name" => "test",
-        "username" => "root",
-        "password" => "",
-        "charset" => "utf8mb4"
-    ];
+DB_DRIVER=mysql
+DB_SERVER=localhost
+DB_NAME=test
+DB_USERNAME=root
+DB_PASSWORD=
+DB_CHARSET=utf8mb4
 
 ```
-
+<b>Mdb supports Mysql. </b>
 ----------------------------------
 
 ### Create Table
@@ -36,7 +35,7 @@ change your mysql server details in mdb.php file:
 
     Mdb::createTable($tableName, $args);
 
-For this in args, you should know how sql defines it's cols.
+For this in args, you should know how sql defines it's cols. (for mysql)
 
 
 ### Insert Data
