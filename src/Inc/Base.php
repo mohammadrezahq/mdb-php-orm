@@ -2,36 +2,32 @@
 
 namespace Mor\Mdb\Inc;
 
-interface Base 
+use Mor\Mdb\Inc\ErrorHandler;
+
+class Base 
 {
 
-    public function __construct($dbname, $username = "root", $password = "", $server = "localhost", $charset = "utf8mb4");
+    use ErrorHandler;
 
-    public function table($table);
+    protected $db;
 
-    public function where($column, $value, $operator = "=");
+    protected $table;
 
-    public function whereArray(array $array);
+    protected $where;
 
-    public function orWhere($column, $value, $operator = "=");
+    protected $query;
 
-    public function getAll($cols = "*", int $limit = 0);
+    protected $order;
+    
+    /**
+     * Get array and turn into object
+     * @param array $array
+     * @return object
+     */
+    protected function turnIntoObject(array $array) {
 
-    public function first($cols = "*");
+        return json_decode(json_encode($array));
 
-    public function last($cols = "*");
-
-    public function order($by, $value = "ASC");
-
-    public function insert(array $data);
-
-    public function update(array $data);
-
-    public function delete();
-
-    public function createTable(string $tableName, array  $args);
-
-    public function countOfRows();
-
+    }
 
 }

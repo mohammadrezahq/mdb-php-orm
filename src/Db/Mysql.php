@@ -1,129 +1,22 @@
 <?php
-/**
- *                          MSQL
- * ======================================================
- *                     ORM - PHP/Mysql
- *
- * @link https://github.com/mohammadrezahq/msql-orm
- * @license  http://www.opensource.org/licenses/mit-license.php MIT
- * @copyright Copyright (c) 2021 Mohammadreza Haghshenas <mohammadrezah.official@gmail.com>
- */
-
-namespace Mor\Mdb\Inc;
+namespace Mor\Mdb\Db;
 
 use Mor\Mdb\Inc\Base;
+use Mor\Mdb\Inc\Database;
 
-class Mysql implements Base
+class Mysql extends Base implements Database
 {
-    private $db;
 
-    private $table;
-
-    private $where;
-
-    private $query;
-
-    private $order;
-
-
-    /**
-     * MSQL Construct
-     * @param string $dbname <p>
-     * Database name.
-     * </p>
-     * @param string $username <p>
-     * Database username.
-     * </p>
-     * @param string $password <p>
-     * Database password.
-     * </p>
-     * @param string $server <p>
-     * Database server.
-     * </p>
-     * @param string $charset <p>
-     * Database charset.
-     * </p>
-     */
-    public function __construct($dbname, $username = "root", $password = "", $server = "localhost", $charset = "utf8mb4")
+    public function __construct()
     {
-
-        $conn = new \mysqli($server, $username, $password, $dbname);
+        $conn = new \mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $conn->set_charset($charset);
+        $conn->set_charset($_ENV['DB_CHARSET']);
         $this->db = $conn;
-
-    }
-
-    public static function check() {
-        echo 'test';
-    }
-
-    private function error($reason) {
-
-        $errors = [
-            "tableSet" => "The table does not set, use table() method to define table.",
-            "whereArrayConflict" => "You can't use where method with whereArray method concurrently",
-            "orWhereError" => "You can't use orWhere method without where or whereArray method.",
-        ];
-
-        if ($reason == 'plain') {
-
-            return "Error: " . $this->db->error;
-
-        }
-
-        die("Error: " . $errors[$reason]);
-
-    }
-
-    private function errorHandle($method) {
-
-        if ($method == "get") {
-
-            if ($this->table == "") {
-
-                $this->error("tableSet");
-
-            }
-
-        }
-
-        if ($method == "orWhere") {
-
-            if ($this->where !== "") {
-
-                $this->error("orWhereError");
-
-            }
-
-        }
-
-        if ($method == "whereArray") {
-
-            if ($this->where !== "") {
-
-                $this->error("whereArrayConflict");
-
-            }
-
-        }
-
-    }
-
-
-
-    /**
-     * Get array and turn into object
-     * @param array $array
-     * @return object
-     */
-    private function turnIntoObject(array $array) {
-
-        return json_decode(json_encode($array));
 
     }
 
