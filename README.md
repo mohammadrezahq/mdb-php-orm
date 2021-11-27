@@ -19,8 +19,9 @@ DB_PASSWORD=
 DB_CHARSET=utf8mb4
 
 ```
+
 <b>Mdb supports Mysql. </b>
-----------------------------------
+
 
 ### Create Table
 
