@@ -13,5 +13,8 @@
             "name": "mohammadreza Haghshenas",
             "email": "mohammadrezah.official@gmail.com"
         }
-    ]
+    ],
+    "require": {
+        "symfony/dotenv": "^5.3"
+    }
 }

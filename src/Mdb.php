@@ -7,6 +7,11 @@ use Mor\Mdb\Inc\Mysql as DB;
 
 class Mdb {
 
+    public function __construct()
+    {
+
+    }
+
     protected static $database = [
         "server" => "localhost",
         "name" => "test",

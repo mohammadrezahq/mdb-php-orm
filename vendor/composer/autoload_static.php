@@ -6,7 +6,15 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit8a33b0d29e3847fbc4b12cd94786de80
 {
+    public static $files = array (
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Symfony\\Component\\Dotenv\\' => 25,
+        ),
         'M' => 
         array (
             'Mor\\Mdb\\' => 8,
@@ -14,6 +22,10 @@ class ComposerStaticInit8a33b0d29e3847fbc4b12cd94786de80
     );
 
     public static $prefixDirsPsr4 = array (
+        'Symfony\\Component\\Dotenv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/dotenv',
+        ),
         'Mor\\Mdb\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
